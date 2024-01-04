@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  fastapi-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: modiao/fastapi-scheduler:1.0
+    ports:
+      - "8000:80"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
